@@ -1,4 +1,3 @@
-# Cloud
 
 # Laravel CLOUDREVEL Management System
 
