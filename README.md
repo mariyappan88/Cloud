@@ -18,18 +18,27 @@ This Laravel project manages customers and their leads, allowing users to create
 4. php artisan migrate
 
 
-5. 
+5. Additional information
 
-Include any additional configuration instructions specific to your project. This could include setting up environment variables, configuring third-party services, or any other customization required to run the project.
+Packages installed
+"spatie/laravel-permission": "^6.9" => for roles assignment.
+"laravel/breeze": "^1.29", => Login & Register
 
-- Configure mail settings in `.env` for email notifications:
+User Login and Registration:
 
-  ```dotenv
-  MAIL_MAILER=smtp
-  MAIL_HOST=smtp.mailtrap.io
-  MAIL_PORT=2525
-  MAIL_USERNAME=your_mailtrap_username
-  MAIL_PASSWORD=your_mailtrap_password
-  MAIL_ENCRYPTION=tls
-  MAIL_FROM_ADDRESS=your_email@example.com
-  MAIL_FROM_NAME="${APP_NAME}"
+Admin Users : admin1@gm.com	
+Regular user : user1@gm.com
+
+Admin user can see the Customer management and Lead management navigations in the top.
+
+Regular users cannot able to visible. They can check in profile. 
+
+Note: When register the user, The username contains ‘admin’ it will take as Admin user otherwise regular user. Added this logic in inside RegisteredUser file.
+
+php artisan permission:create-role admin
+php artisan permission:create-role user
+
+php artisan db:seed --class=CustomersTableSeeder
+php artisan db:seed --class=LeadsSeeder
+
+php artisan db:seed
